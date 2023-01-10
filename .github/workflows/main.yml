@@ -29,3 +29,20 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+        
+      - name: helloWorld
+        run: echo "test simplon leo"
+      - name: Deploy using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER_NAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd ~/projets/demo1/leon/myhello_actions
+          pwd
+          git pull origin master
+          git status
+          npm install
+          
