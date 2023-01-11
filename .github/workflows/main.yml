@@ -31,9 +31,10 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
 
       - name: hello
-        run: echo 'eh ouai'
+        run : echo 'Hello'
       - name: Deploy using ssh
-      with:
+        uses: appleboy/ssh-action@master
+        with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER_NAME }}
           key: ${{ secrets.PRIVATE_KEY }}
@@ -44,4 +45,12 @@ jobs:
               git pull origin master
               git status
               npm install
-              docker run -dp 3005:3005 leoringot62/clockbox
+              docker container stop leoringot62
+              docker container rm leoringot62
+              DOCKER_BUILDKIT=1 docker build -t clockbox .
+              docker run -dp 3005:3005 --name="leoringot62" clockbox
+              docker ps -a
+
+      # - name: pull
+      #   uses: actions/checkout@v3 #aller récupérer un repo
+      #   with:
