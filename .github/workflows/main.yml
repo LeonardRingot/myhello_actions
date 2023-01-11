@@ -47,3 +47,4 @@ jobs:
               npm install
               docker container stop leoringot62
               docker container rm leoringot62
+              DOCKER_BUILDKIT=1 docker build -t clockbox .
