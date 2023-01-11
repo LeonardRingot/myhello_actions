@@ -1,19 +1,8 @@
 FROM node:18-alpine
-
-WORKDIR /projets/demo1/leon/myhello_actions
-COPY ./ /projets/demo1/leon/myhello_actions
-
-RUN touch .env
+WORKDIR /app
+COPY ./ /app
 RUN ls -a
-
 RUN npm install
-
 RUN npm run build
-
-RUN --mount=type=secret,id=MY_SECRET,dst=/.env
-
-RUN echo MY_SECRET
-
 EXPOSE 3005
-
 CMD ["npm", "run", "start"]
