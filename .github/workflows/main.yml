@@ -44,7 +44,4 @@ jobs:
               git pull origin master
               git status
               npm install
-              docker container stop leoringot62
-              docker container rm leoringot62
-              DOCKER_BUILDKIT=1 docker build -t clockbox .
               docker run -dp 3005:3005 leoringot62/clockbox
