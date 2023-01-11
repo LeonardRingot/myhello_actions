@@ -1,7 +1,7 @@
 FROM node:18-alpine
 
-WORKDIR /projets/demo1/leon/myhello_actions
-COPY ./ /projets/demo1/leon/myhello_actions
+WORKDIR /app
+COPY ./ /app
 
 RUN ls -a
 
