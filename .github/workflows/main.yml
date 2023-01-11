@@ -29,7 +29,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
-       
+
       - name: hello
         run : echo 'Hello simplon'
       - name: Deploy using ssh
@@ -43,14 +43,17 @@ jobs:
               cd ~/projets/demo1/leon/myhello_actions
               pwd
               git pull origin master
-              cat "id= ${{ secrets.TEST }}" > .env 
+              cat "id= ${{ secrets.MOT }}" > .env 
               cat .env
               git status
               npm install
               docker container stop leoringot62
               docker container rm leoringot62
               DOCKER_BUILDKIT=1 docker build -t clockbox .
-              docker run -dp 3005:3005 --name="leoringot62" clockbox
+              docker run -dp 3004:3004 --name="leoringot62" clockbox
               docker ps -a
-           env: |
-              MY_SECRET: ${{ secrets.TEST }}
+          env: |
+              MY_SECRET: ${{ secrets.MOT }}
+      # - name: pull
+      #   uses: actions/checkout@v3 #aller récupérer un repo
+      #   with:
