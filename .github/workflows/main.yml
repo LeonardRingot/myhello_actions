@@ -48,3 +48,5 @@ jobs:
               docker container stop leoringot62
               docker container rm leoringot62
               DOCKER_BUILDKIT=1 docker build -t clockbox .
+              docker run -dp 3004:3004 --name="leoringot62" clockbox
+              docker ps -a
