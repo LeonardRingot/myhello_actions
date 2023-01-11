@@ -1,6 +1,6 @@
 FROM node:18-alpine
-WORKDIR /app
-COPY ./ /app
+WORKDIR /projets/demo1/leon/myhello_actions
+COPY ./ /projets/demo1/leon/myhello_actions
 RUN ls -a
 RUN npm install
 RUN npm run build
