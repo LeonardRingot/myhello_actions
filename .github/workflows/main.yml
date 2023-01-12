@@ -40,9 +40,8 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-              docker stop leoringot62
-              docker rm leoringot62
-              docker rmi $(docker images 'leonardcontainer')
-              echo ${{secrets.DOCKERHUB_TOKEN}} | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
-              docker run -dp 3005:3005 --name="leoringot62" ${{secrets.DOCKERHUB_USERNAME}}/leonardcontainer:leonardimage
+              docker stop leonardcontainer
+              docker rm leonardcontainer
+              docker rmi $(docker images leonardimage -q)
+              docker run -dp 3005:3005 leonardcontainer/leonardimage
               
