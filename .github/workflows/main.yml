@@ -40,9 +40,9 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-              docker container stop leonardcontainer
-              docker container rm leonardcontainer
-              docker rmi leonardcontainer
+              docker stop leonardcontainer
+              docker rm leonardcontainer
+              docker rmi leonardimage
               DOCKER_BUILDKIT=1 docker build -t leonardimage .
               docker run -dp 3005:3005 leonardcontainer/leonardimage
               docker ps -a
