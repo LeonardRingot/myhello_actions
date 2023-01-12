@@ -28,7 +28,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/leonardcontainer:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/leonardcontainer:leonardimage
 
       - name: hello
         run : echo 'Hello'
