@@ -42,7 +42,7 @@ jobs:
           script: |
               docker stop leonardcontainer
               docker rm leonardcontainer
-              docker rmi $(docker images 'leonardimage')
+              docker rmi $(docker images "leonardimage")
               docker login ${{secrets.DOCKERHUB_USERNAME}} --pasword-stdin
               docker run -dp 3005:3005 leonardcontainer/leonardimage
               docker ps -a
