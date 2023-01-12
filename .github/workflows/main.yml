@@ -44,4 +44,4 @@ jobs:
               docker rm leonardcontainer
               docker rmi $(docker images 'leonardimage')
               docker run -dp 3005:3005 leonardcontainer/leonardimage
-              
+              docker ps -a
