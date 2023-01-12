@@ -40,7 +40,6 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-              cd ~/projets/demo1/leon/myhello_actions
               docker container stop leonardcontainer
               docker container rm leonardcontainer
               docker rmi leonardcontainer
