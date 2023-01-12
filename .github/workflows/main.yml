@@ -43,6 +43,6 @@ jobs:
               docker stop leonardcontainer
               docker rm leonardcontainer
               docker rmi $(docker images leonardimage)
-              echo ${{secrets.DOCKERHUB_USERNAME}}
-              docker run -dp 3005:3005 leonardcontainer/leonardimage
-              docker ps -a
+              echo ${{secrets.DOCKERHUB_TOKEN}} | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+              docker run -dp 3005:3005 --name:leonardcontainer ${{secrets.DOCKERHUB_USERNAME}}/leonardimage
+              
