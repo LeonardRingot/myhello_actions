@@ -45,8 +45,8 @@ jobs:
               git pull origin master
               git status
               npm install
-              docker container stop leoringot62
-              docker container rm leoringot62
+              docker container stop leonardContainer
+              docker container rm leonardContainer
               DOCKER_BUILDKIT=1 docker build -t leonardimage .
-              docker run -dp 3005:3005 leoringot62/leonardimage
+              docker run -dp 3005:3005 leonardContainer/leonardimage
               docker ps -a
