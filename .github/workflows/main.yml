@@ -28,7 +28,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/leonardContainer:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/leonardcontainer:latest
 
       - name: hello
         run : echo 'Hello'
@@ -45,8 +45,8 @@ jobs:
               git pull origin master
               git status
               npm install
-              docker container stop leonardContainer
-              docker container rm leonardContainer
+              docker container stop leonardcontainer
+              docker container rm leonardcontainer
               DOCKER_BUILDKIT=1 docker build -t leonardimage .
-              docker run -dp 3005:3005 leonardContainer/leonardimage
+              docker run -dp 3005:3005 leonardcontainer/leonardimage
               docker ps -a
