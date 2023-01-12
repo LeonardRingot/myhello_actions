@@ -28,7 +28,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/leonardContainer:latest
 
       - name: hello
         run : echo 'Hello'
@@ -50,7 +50,3 @@ jobs:
               DOCKER_BUILDKIT=1 docker build -t leonardimage .
               docker run -dp 3005:3005 leoringot62/leonardimage
               docker ps -a
-
-      # - name: pull
-      #   uses: actions/checkout@v3 #aller récupérer un repo
-      #   with:
