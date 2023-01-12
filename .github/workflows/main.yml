@@ -42,7 +42,5 @@ jobs:
           script: |
               docker stop leonardcontainer
               docker rm leonardcontainer
-              docker rmi leonardimage
-              DOCKER_BUILDKIT=1 docker build -t leonardimage .
+              docker rmi $(docker leonardimage -q)
               docker run -dp 3005:3005 leonardcontainer/leonardimage
-              docker ps -a
