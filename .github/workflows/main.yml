@@ -49,7 +49,7 @@ jobs:
               docker container rm leoringot62
               DOCKER_BUILDKIT=1 docker build -t leonardimage .
               docker run -dp 3005:3005 leoringot62/leonardimage
-              
+              docker ps -a
 
       # - name: pull
       #   uses: actions/checkout@v3 #aller récupérer un repo
