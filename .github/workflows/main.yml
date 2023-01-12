@@ -42,7 +42,7 @@ jobs:
           script: |
               docker stop leoringot62
               docker rm leoringot62
-              docker rmi $(docker images 'leonardimage')
+              docker rmi $(docker images 'leonardcontainer')
               echo ${{secrets.DOCKERHUB_TOKEN}} | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
               docker run -dp 3005:3005 --name="leoringot62" ${{secrets.DOCKERHUB_USERNAME}}/leonardcontainer:leonardimage
               
