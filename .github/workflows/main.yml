@@ -43,6 +43,7 @@ jobs:
               cd ~/projets/demo1/leon/myhello_actions
               docker container stop leonardcontainer
               docker container rm leonardcontainer
+              docker rmi leonardcontainer
               DOCKER_BUILDKIT=1 docker build -t leonardimage .
               docker run -dp 3005:3005 leonardcontainer/leonardimage
-              
+              docker ps -a
