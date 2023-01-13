@@ -38,9 +38,9 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-              docker stop leonard
-              docker rm leonard
+              docker stop leonardcontainer
+              docker rm leonardcontainer
               docker rmi $(docker images 'leonardimage')
               docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
-              docker run -dp 3005:3005 --name="leonard" leonardcontainer/leonardimage
+              docker run -dp 3005:3005 --name="leonardcontainer" leonardcontainer/leonardimage
               docker ps -a
