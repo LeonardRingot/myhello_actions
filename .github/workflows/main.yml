@@ -42,5 +42,5 @@ jobs:
               docker rm leonardcontainer
               docker rmi $(docker images 'leonardimage')
               docker login ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
-              docker run -dp 3005:3005 --name="leonardcontainer" leonardcontainer/leonardimage
+              docker run -dp 3005:3005 leonardcontainer/leonardimage
               docker ps -a
