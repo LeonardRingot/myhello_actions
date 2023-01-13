@@ -43,4 +43,4 @@ jobs:
               docker rmi $(docker images | grep 'leonardimage')
               docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
               docker run -dp 3005:3005 --name="leoringot62" ${{secrets.DOCKERHUB_USERNAME}}/leonardcontainer:leonardimage
-              # DOCKER_BUILDKIT=1 docker build -t leonardimage .
+              docker ps -a
